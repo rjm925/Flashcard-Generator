@@ -1,0 +1,12 @@
+[
+  {
+    "cloze": "George Washington",
+    "fullText": "George Washington was the first president of the United States",
+    "partial": "... was the first president of the United States"
+  },
+  {
+    "cloze": "Ryan Mendoza",
+    "fullText": "My name is Ryan Mendoza",
+    "partial": "My name is ..."
+  }
+]

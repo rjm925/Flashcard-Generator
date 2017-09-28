@@ -1,10 +1,42 @@
 [
   {
-    "front": "Who was the first president of the United States?",
-    "back": "George Washington"
+    "front": "Who was the shortest player ever to play in the NBA?",
+    "back": "Tyrone Bogues"
   },
   {
-    "front": "What question number is this?",
-    "back": "2"
+    "front": "What male tennis player has won the most Grand Slam titles?",
+    "back": "Roger Federer"
+  },
+  {
+    "front": "How many holes are there in a full round of golf?",
+    "back": "18"
+  },
+  {
+    "front": "Who is the only athlete ever to play in a Super Bowl and a World Series?",
+    "back": "Deion Sanders"
+  },
+  {
+    "front": "What is the regulation height for a basketball hoop?",
+    "back": "10 feet"
+  },
+  {
+    "front": "Where did the sport of curling originate?",
+    "back": "Scotland"
+  },
+  {
+    "front": "What city hosted the 2012 Summer Olympics?",
+    "back": "London, England"
+  },
+  {
+    "front": "Tiger Woods became a professional golfer in what year?",
+    "back": "1996"
+  },
+  {
+    "front": "Which team did the Chicago Cubs play in the 1945 World Series?",
+    "back": "Detroit Tigers"
+  },
+  {
+    "front": "What is the highest score possible in 10 pin bowling?",
+    "back": "300"
   }
 ]

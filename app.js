@@ -5,6 +5,40 @@ var fs = require("fs");
 var basic = [];
 var cloze = [];
 
+fs.readFile("basic.txt", "utf8", function(err, data) {
+	if (!err) {
+		basic = JSON.parse(data);
+		return basic;
+	}
+});
+
+fs.readFile("cloze.txt", "utf8", function(err, data) {
+	if (!err) {
+		cloze = JSON.parse(data);
+		return cloze;
+	}	
+});
+
+function start() {
+	inquirer
+		.prompt([
+			{
+				type: "list",
+				message: "Would you like to create a card or study?",
+				choices: ["Create", "Study", "Exit"],
+				name: "action"
+			}
+		])
+		.then(function(response) {
+			if (response.action === "Create") {
+				create();
+			}
+			else if (response.action === "Study") {
+				deck();
+			}
+		})
+}
+
 function create() {
 	inquirer
 	.prompt([
@@ -53,8 +87,12 @@ function create() {
 				])
 				.then(function(setup) {
 					var card = new ClozeCard(setup.text, setup.cloze);
-					cloze.push(card);
-					fs.writeFile("cloze.txt", JSON.stringify(cloze, null, 2));
+
+					if (setup.text.includes(setup.cloze)) {
+						cloze.push(card);
+						fs.writeFile("cloze.txt", JSON.stringify(cloze, null, 2));
+					}
+					
 					another();
 				});
 		}
@@ -117,71 +155,122 @@ function deck() {
 }
 
 function basicTest() {
+	var correct = 0;
+	var incorrect = 0;
+
 	fs.readFile("basic.txt", "utf8", function(err, data) {
-		dataArr = JSON.parse(data);
-		card = 0;
+		if (!err) {
+			dataArr = JSON.parse(data);
+			randomize(dataArr);
+			card = 0;
 
-		function ask() {
-			inquirer
-				.prompt([
-					{
-						type: "input",
-						message: dataArr[card].front,
-						name: "answer"
-					}
-				])
-				.then(function(response) {
-					if (response.answer === dataArr[card].back) {
-						console.log("Correct!");
-					}
-					else {
-						console.log("Incorrect!");
-					}
+			function ask() {
+				inquirer
+					.prompt([
+						{
+							type: "input",
+							message: dataArr[card].front,
+							name: "answer"
+						}
+					])
+					.then(function(response) {
+						if (response.answer.toUpperCase() === dataArr[card].back.toUpperCase()) {
+							console.log("Correct!\n");
+							correct++;
+						}
+						else {
+							console.log("Incorrect! Answer: " + dataArr[card].back + "\n");
+							incorrect++;
+						}
 
-					card++;
+						card++;
 
-					if (card < dataArr.length) {
-						ask();
-					}
-				})
+						if (card < dataArr.length) {
+							ask();
+						}
+						else {
+							console.log("Correct Answers: " + correct);
+							console.log("Incorrect Answers: " + incorrect + "\n");
+							start();
+						}
+					})
+			}
+
+			ask();
 		}
-
-		ask();
+		else {
+			console.log("Deck is empty.");
+			start();
+		}		
 	})
 }
 
 function clozeTest() {
+	var correct = 0;
+	var incorrect = 0;
+
 	fs.readFile("cloze.txt", "utf8", function(err, data) {
-		dataArr = JSON.parse(data);
-		card = 0;
+		if (!err) {
+			dataArr = JSON.parse(data);
+			randomize(dataArr);		
+			card = 0;
 
-		function ask() {
-			inquirer
-				.prompt([
-					{
-						type: "input",
-						message: dataArr[card].partial,
-						name: "answer"
-					}
-				])
-				.then(function(response) {
-					if (response.answer === dataArr[card].cloze) {
-						console.log("Correct!");
-					}
-					else {
-						console.log("Incorrect!");
-					}
+			function ask() {
+				inquirer
+					.prompt([
+						{
+							type: "input",
+							message: dataArr[card].partial,
+							name: "answer"
+						}
+					])
+					.then(function(response) {
+						if (response.answer.toUpperCase() === dataArr[card].cloze.toUpperCase()) {
+							console.log("Correct!\n");
+							correct++;
+						}
+						else {
+							console.log("Incorrect! Answer: " + dataArr[card].cloze + "\n");
+							incorrect++;
+						}
 
-					card++;
+						card++;
 
-					if (card < dataArr.length) {
-						ask();
-					}
-				})
+						if (card < dataArr.length) {
+							ask();
+						}
+						else {
+							console.log("Correct Answers: " + correct);
+							console.log("Incorrect Answers: " + incorrect + "\n");
+							start();
+						}
+					})
+			}
+
+			ask();
 		}
-
-		ask();
+		else {
+			console.log("Deck is empty");
+			start();
+		}
 	})
 }
 
-create();
+function randomize(array) {
+	var i = 0;
+
+	while (i < array.length) {
+		num1 = Math.floor(Math.random() * array.length);
+		num2 = Math.floor(Math.random() * array.length);
+
+		tmp = array[num1];
+		array[num1] = array[num2];
+		array[num2] = tmp;
+
+		i++;
+	}
+
+	return array;
+}
+
+start();

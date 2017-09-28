@@ -1,12 +1,52 @@
 [
   {
-    "cloze": "George Washington",
-    "fullText": "George Washington was the first president of the United States",
-    "partial": "... was the first president of the United States"
+    "cloze": "Tyrone Bogues",
+    "fullText": "Tyrone Bogues was the shortest player ever to play in the NBA.",
+    "partial": "... was the shortest player ever to play in the NBA."
   },
   {
-    "cloze": "Ryan Mendoza",
-    "fullText": "My name is Ryan Mendoza",
-    "partial": "My name is ..."
+    "cloze": "Roger Federer",
+    "fullText": "Roger Federer has won the most male Grand Slam titles.",
+    "partial": "... has won the most male Grand Slam titles."
+  },
+  {
+    "cloze": "18",
+    "fullText": "There are 18 holes in a full round of golf.",
+    "partial": "There are ... holes in a full round of golf."
+  },
+  {
+    "cloze": "Deion Sanders",
+    "fullText": "Deion Sanders is the only athlete ever to play in a Super Bowl and a World Series.",
+    "partial": "... is the only athlete ever to play in a Super Bowl and a World Series."
+  },
+  {
+    "cloze": "10 feet",
+    "fullText": "The regulation height for a basketball hoop is 10 feet.",
+    "partial": "The regulation height for a basketball hoop is ...."
+  },
+  {
+    "cloze": "Scotland",
+    "fullText": "The sport of curling originated in Scotland.",
+    "partial": "The sport of curling originated in ...."
+  },
+  {
+    "cloze": "London, England",
+    "fullText": "London, England hosted the 2012 Summer Olympics.",
+    "partial": "... hosted the 2012 Summer Olympics."
+  },
+  {
+    "cloze": "1996",
+    "fullText": "Tiger Woods became a professional golfer in 1996.",
+    "partial": "Tiger Woods became a professional golfer in ...."
+  },
+  {
+    "cloze": "Detroit Tigers",
+    "fullText": "Chicago Cubs played the Detroit Tigers in the 1945 World Series.",
+    "partial": "Chicago Cubs played the ... in the 1945 World Series."
+  },
+  {
+    "cloze": "300",
+    "fullText": "The highest score possible in 10 pin bowling is 300.",
+    "partial": "The highest score possible in 10 pin bowling is ...."
   }
 ]

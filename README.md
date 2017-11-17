@@ -6,6 +6,7 @@ A CLI application to create or study flashcards. The user can create two types o
 
 # To Start
 npm install
+
 node app.js
 
 # Technology Used

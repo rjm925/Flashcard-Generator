@@ -1,9 +1,10 @@
-var BasicCard = require("./BasicCard.js");	//Calls for basic card constructor
-var ClozeCard = require("./ClozeCard.js");	//Calls for cloze card constructor
-var inquirer = require("inquirer");					//Calls inquirer package
-var fs = require("fs");											//Calls fs package
-var basic = [];															//Array to hold basic cards
-var cloze = [];															//Array to hold cloze cards
+const BasicCard = require("./BasicCard.js");	//Calls for basic card constructor
+const ClozeCard = require("./ClozeCard.js");	//Calls for cloze card constructor
+const inquirer = require("inquirer");					//Calls inquirer package
+const fs = require("fs");											//Calls fs package
+
+let basic = [];															//Array to hold basic cards
+let cloze = [];															//Array to hold cloze cards
 
 //Read basic.txt file
 fs.readFile("basic.txt", "utf8", function(err, data) {
@@ -76,7 +77,7 @@ function create() {
 				])
 				.then(function(setup) {
 					//Creates a basic card
-					var card = new BasicCard(setup.question, setup.answer);
+					let card = new BasicCard(setup.question, setup.answer);
 					//Add card to basic array
 					basic.push(card);
 					//Updates basic.txt
@@ -101,7 +102,7 @@ function create() {
 				])
 				.then(function(setup) {
 					//Creates a cloze card
-					var card = new ClozeCard(setup.text, setup.cloze);
+					let card = new ClozeCard(setup.text, setup.cloze);
 
 					//Checks if text contains cloze
 					if (setup.text.includes(setup.cloze)) {
@@ -179,8 +180,8 @@ function deck() {
 //Goes through basic cards
 function basicTest() {
 	//Initialize score
-	var correct = 0;
-	var incorrect = 0;
+	let correct = 0;
+	let incorrect = 0;
 
 	//Read file for questions
 	fs.readFile("basic.txt", "utf8", function(err, data) {
@@ -242,8 +243,8 @@ function basicTest() {
 //Goes through cloze cards
 function clozeTest() {
 	//Initialize score
-	var correct = 0;
-	var incorrect = 0;
+	let correct = 0;
+	let incorrect = 0;
 
 	//Read file for questions
 	fs.readFile("cloze.txt", "utf8", function(err, data) {
@@ -305,7 +306,7 @@ function clozeTest() {
 //Randomizes the cards
 function randomize(array) {
 	//Counter variable
-	var i = 0;
+	let i = 0;
 
 	//Continue for length iterations
 	while (i < array.length) {

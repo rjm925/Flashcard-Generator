@@ -38,5 +38,9 @@
   {
     "front": "What is the highest score possible in 10 pin bowling?",
     "back": "300"
+  },
+  {
+    "front": "What sport do the Boston Red Sox play?",
+    "back": "Baseball"
   }
 ]
